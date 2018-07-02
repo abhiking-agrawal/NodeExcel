@@ -1,4 +1,6 @@
 module.exports = {
     sheetName : "Sheet 1",
-    outputFileName : "Agrawal_Output2"
+    inputSheetName : "Sheet2",
+    inputFileSrc : "data/Agrawal_Input.xlsx",
+    outputFileName : "Agrawal_Output"
 }

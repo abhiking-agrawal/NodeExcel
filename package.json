@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/s530670/NodeExcel#readme",
   "dependencies": {
-    "excel4node": "^1.3.6"
+    "convert-excel-to-json": "^1.3.0",
+    "excel4node": "^1.3.6",
+    "sort-by": "^1.2.0"
   }
 }

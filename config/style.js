@@ -40,4 +40,20 @@ module.exports = {
         },
         border : defaultBorder
     },
+    row0: {
+        fill: {
+            type : "pattern",
+            patternType : "solid",
+            fgColor: "#fff2cc"
+        },
+        border : defaultBorder
+    },
+    row1: {
+        fill: {
+            type : "pattern",
+            patternType : "solid",
+            fgColor: "#c6e0b4"
+        },
+        border : defaultBorder
+    },
 }
