@@ -1,0 +1,26 @@
+{
+  "name": "nodeexcel",
+  "version": "1.0.0",
+  "description": "excel read and write in specified format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://s530670@github.com/s530670/NodeExcel.git"
+  },
+  "keywords": [
+    "Excel",
+    "Nodejs"
+  ],
+  "author": "TATA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s530670/NodeExcel/issues"
+  },
+  "homepage": "https://github.com/s530670/NodeExcel#readme",
+  "dependencies": {
+    "excel4node": "^1.3.6"
+  }
+}
