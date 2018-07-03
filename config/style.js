@@ -1,5 +1,5 @@
 const defaultBorder = {
-    left : {style : "thin"}, right : {style : "thin"}, top : {style : "thin"}, bottom : {style : "thin"}
+    left: { style: "thin" }, right: { style: "thin" }, top: { style: "thin" }, bottom: { style: "thin" }
 }
 
 module.exports = {
@@ -8,52 +8,41 @@ module.exports = {
             bold: true
         },
         fill: {
-            type : "pattern",
-            patternType : "solid",
+            type: "pattern",
+            patternType: "solid",
             fgColor: "#c6e0b4"
         },
-        border : defaultBorder
-    },
-    nameHeaderValue: {
-        font: {
-            underline: true
-        },
-        fill: {
-            type : "pattern",
-            patternType : "solid",
-            fgColor: "#c6e0b4"
-        },
-        border : defaultBorder
+        border: defaultBorder
     },
     tableHeader: {
         alignment: {
-            horizontal : "center"
+            horizontal: "center"
         },
         font: {
             bold: true,
-            color :"#ffffff"
+            color: "#ffffff"
         },
         fill: {
-            type : "pattern",
-            patternType : "solid",
+            type: "pattern",
+            patternType: "solid",
             fgColor: "#c00000"
         },
-        border : defaultBorder
+        border: defaultBorder
     },
     row0: {
         fill: {
-            type : "pattern",
-            patternType : "solid",
+            type: "pattern",
+            patternType: "solid",
             fgColor: "#fff2cc"
         },
-        border : defaultBorder
+        border: defaultBorder
     },
     row1: {
         fill: {
-            type : "pattern",
-            patternType : "solid",
+            type: "pattern",
+            patternType: "solid",
             fgColor: "#c6e0b4"
         },
-        border : defaultBorder
+        border: defaultBorder
     },
 }

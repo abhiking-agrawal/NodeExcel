@@ -31,10 +31,12 @@ var wb = new xl.Workbook();
 var ws = wb.addWorksheet(constants.sheetName);
 
 //Set the Name cell
-ws.cell(2, 2).string("Name").style(styleConst.nameHeader);
+ws.cell(2, 2).string("Name")
+    .style(styleConst.nameHeader).style({ font: {bold: true} });
 
 //Set the Name value cell
-ws.cell(2, 3, 2, 4, true).string("Agrawal, Abhijeet").style(styleConst.nameHeaderValue);
+ws.cell(2, 3, 2, 4, true).string("Agrawal, Abhijeet")
+.style(styleConst.nameHeader).style({ font: {underline: true} });
 
 //Set the table headers
 ws.cell(4, 1).string("SNO").style(styleConst.tableHeader);
