@@ -1,5 +1,4 @@
 # Node Excel
--------------
 
 ## Introduction
 
