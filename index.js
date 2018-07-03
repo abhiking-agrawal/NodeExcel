@@ -3,6 +3,7 @@ const xl = require('excel4node')
 const excelToJson = require("convert-excel-to-json")
 const sortBy = require('sort-by')
 
+//Config files
 const constants = require("./config/constant")
 const styleConst = require("./config/style")
 
@@ -38,33 +39,48 @@ ws.cell(2, 3, 2, 4, true).string("Agrawal, Abhijeet").style(styleConst.nameHeade
 //Set the table headers
 ws.cell(4, 1).string("SNO").style(styleConst.tableHeader);
 ws.cell(4, 2).string("Genre").style(styleConst.tableHeader);
-ws.cell(4, 3).string("Credit Score").style(styleConst.tableHeader);
+ws.cell(4, 3).string("Critic Score").style(styleConst.tableHeader);
 ws.cell(4, 4).string("Album Name").style(styleConst.tableHeader);
 ws.cell(4, 5).string("Artist").style(styleConst.tableHeader);
 ws.cell(4, 6).string("Release Date").style(styleConst.tableHeader);
 
-//f
-for(i=1; i <= sortedData.length; i++){
-    var rowType = "" +i % 2;
-    var temp = sortedData[i]
-    ws.cell(5 , 1).number(temp["SNO"]).style(styleConst.row1);
-    ws.cell(5 , 2).string(temp["Genre"]).style(styleConst.row1);
-    ws.cell(5 , 3).number(temp["Credit Score"]).style(styleConst.row1);
-    ws.cell(5 , 4).string(temp["Album Name"]).style(styleConst.row1);
-    ws.cell(5 , 5).string(temp["Artist"]).style(styleConst.row1);
-    ws.cell(5 , 6).string(temp["Release Date"]).style(styleConst.row1);
-    // if(i == sortedData.length){
-    //     writeToTheFile()
-    // }
+//TO keep track of Genre group
+var oldGenre = ""
+var rowType = "1"
+
+//Loop to iterate all the input data
+for (i = 1; i <= sortedData.length; i++) {
+    var temp = sortedData[i - 1]
+    //Check for Genre change
+    if(oldGenre != temp["Genre"]){
+        var rowType = rowType == "1" ? "0" : "1";
+        oldGenre = temp["Genre"]
+    }
+    
+    
+    ws.cell(4 + i, 1).number(temp["SNO"]).style(styleConst["row" + rowType]);
+    ws.cell(4 + i, 2).string(temp["Genre"]).style(styleConst["row" + rowType]);
+    ws.cell(4 + i, 3).number(temp["Critic Score"]).style(styleConst["row" + rowType]);
+    ws.cell(4 + i, 4).string(temp["Album Name"]).style(styleConst["row" + rowType]);
+    ws.cell(4 + i, 5).string(temp["Artist"]).style(styleConst["row" + rowType]);
+    ws.cell(4 + i , 6).date(temp["Release Date"])
+            .style(styleConst["row" + rowType]).style({ numberFormat: 'd-mmm-yy' });;
+
+    //call the function once ready with the sheet
+    if (i == sortedData.length) {
+        writeToTheFile()
+    }
 }
 
+//Generate the output excel file
 function writeToTheFile() {
     wb.write('data/' + constants.outputFileName + '.xlsx', function (err, stats) {
         if (err) {
             console.error(err);
         } else {
+            console.log("Output file generated successfuly...");
             console.log(stats); // Prints out an instance of a node.js fs.Stats object
         }
     });
 }
-writeToTheFile()
+
